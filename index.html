@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Приглашение на свадьбу — Макс и Даша</title>
     
-     <style>
+    <style>
         /* Локальное подключение шрифтов */
         @font-face {
             font-family: 'Montserrat Alternates';
@@ -28,6 +28,12 @@
             font-style: normal;
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -38,6 +44,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            overflow-x: hidden;
         }
 
         .site-container {
@@ -48,6 +55,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
 
         .block-img {
@@ -57,38 +65,43 @@
             padding: 0;
         }
 
-        /* Контейнер первой картинки */
+        /* Специальный класс только для средней картинки — сдвигаем влево сильнее */
+        .middle-img {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            left: -7px;  /* Увеличил сдвиг влево */
+            width: 100%;
+        }
+
         .top-block-container {
             position: relative;
             width: 100%;
         }
 
-        /* Высота разделителя под адрес */
         .spacer {
             height: 10px; 
             width: 100%;
         }
 
-        /* Индивидуальный сдвиг кнопки карт вправо без вреда для других кнопок */
         .map-wrapper {
             width: 100%;
             display: flex;
-            justify-content: flex-start; 
+            justify-content: center;
             box-sizing: border-box;
-            padding-left: 145px; /* Регулируйте это число, чтобы двигать вправо/влево */
-            margin-bottom: 25px; 
+            margin-bottom: 25px;
+            padding: 0 20px;
         }
 
-        /* Контейнер кнопки ТГ — возвращаем воздух и центрирование */
         .tg-wrapper {
             width: 100%;
-            margin: 45px 0 45px 0; /* Создает по 45px свободного места сверху и снизу кнопки */
+            margin: 45px 0 45px 0;
             display: flex;
             justify-content: center;
             box-sizing: border-box;
+            padding: 0 20px;
         }
 
-        /* Стиль интерактивных кнопок */
         .btn-link {
             display: inline-block;
             text-align: center;
@@ -104,7 +117,9 @@
             transition: transform 0.2s;
             border: none;
             cursor: pointer;
-            white-space: nowrap;
+            white-space: normal;
+            word-break: keep-all;
+            max-width: 100%;
         }
         
         .btn-link.tg {
@@ -116,7 +131,6 @@
             transform: scale(0.95);
         }
 
-        /* Сиреневый блок анкеты */
         .anketa-section {
             background-color: #C3B4D4;
             padding: 35px 25px;
@@ -174,11 +188,13 @@
             font-weight: 400;
         }
 
+        /* Стили для радио-кнопок */
         .radio-route input {
             margin-right: 12px;
             width: 20px;
             height: 20px;
-            accent-color: #E2A13B;
+            accent-color: #94A9C7;  /* Голубой цвет вместо оранжевого */
+            filter: drop-shadow(0 0 0 1px white);  /* Тонкая белая обводка */
         }
 
         .submit-container {
@@ -202,6 +218,17 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             transition: transform 0.2s;
         }
+
+        @media (max-width: 480px) {
+            .btn-link {
+                padding: 18px 25px;
+                font-size: 14px;
+            }
+            
+            .anketa-title {
+                font-size: 36px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -217,20 +244,20 @@
         <div class="spacer"></div>
 
         <!-- КНОПКА: Посмотреть на карте -->
-        <div class="btn-wrapper map-wrapper">
-            <a href="https://yandex.ru" target="_blank" class="btn-link">
+        <div class="map-wrapper">
+            <a href="https://yandex.ru/maps/-/CPsZeC79" target="_blank" rel="noopener noreferrer" class="btn-link">
                 Посмотреть на карте
             </a>
         </div>
 
-        <!-- ЧАСТЬ 2 -->
-        <img src="images/middle.png" class="block-img" alt="Программа праздника">
+        <!-- ЧАСТЬ 2 - средняя картинка, сдвинута влево -->
+        <img src="images/middle.png" class="block-img middle-img" alt="Программа праздника">
 
         <!-- АНКЕТА ГОСТЯ -->
         <div class="anketa-section">
             <div class="anketa-title">Анкета гостя</div>
             
-            <form action="https://formspree.io" method="POST">
+            <form action="https://formspree.io/f/xkoenqlo" method="POST">
                 
                 <div class="form-group">
                     <label class="form-label">Ваше имя и фамилия</label>
@@ -279,7 +306,7 @@
 
         <!-- КНОПКА: Подписаться на тг-канал -->
         <div class="tg-wrapper">
-            <a href="https://t.me" target="_blank" class="btn-link tg">
+            <a href="https://t.me/hippie_wedd" target="_blank" rel="noopener noreferrer" class="btn-link tg">
                 Подписаться на тг канал
             </a>
         </div>
