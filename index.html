@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу — Макс и Даша</title>
+    
+     <style>
+        /* Локальное подключение шрифтов */
+        @font-face {
+            font-family: 'Montserrat Alternates';
+            src: url('MontserratAlternates-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Montserrat Alternates';
+            src: url('MontserratAlternates-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Rozovii Chulok';
+            src: url('Rozovii Chulok.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F9F4EE;
+            font-family: 'Montserrat Alternates', sans-serif;
+            font-weight: 400;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .site-container {
+            width: 100%;
+            max-width: 480px;
+            background-color: #F9F4EE;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .block-img {
+            width: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Контейнер первой картинки */
+        .top-block-container {
+            position: relative;
+            width: 100%;
+        }
+
+        /* Высота разделителя под адрес */
+        .spacer {
+            height: 10px; 
+            width: 100%;
+        }
+
+        /* Индивидуальный сдвиг кнопки карт вправо без вреда для других кнопок */
+        .map-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start; 
+            box-sizing: border-box;
+            padding-left: 145px; /* Регулируйте это число, чтобы двигать вправо/влево */
+            margin-bottom: 25px; 
+        }
+
+        /* Контейнер кнопки ТГ — возвращаем воздух и центрирование */
+        .tg-wrapper {
+            width: 100%;
+            margin: 45px 0 45px 0; /* Создает по 45px свободного места сверху и снизу кнопки */
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        /* Стиль интерактивных кнопок */
+        .btn-link {
+            display: inline-block;
+            text-align: center;
+            background-color: #E2A13B;
+            color: white;
+            text-decoration: none;
+            padding: 20px 35px;
+            border-radius: 35px;
+            font-family: 'Montserrat Alternates', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(226, 161, 59, 0.3);
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .btn-link.tg {
+            background-color: #B296C7;
+            box-shadow: 0 4px 12px rgba(178, 150, 199, 0.3);
+        }
+
+        .btn-link:active, .submit-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Сиреневый блок анкеты */
+        .anketa-section {
+            background-color: #C3B4D4;
+            padding: 35px 25px;
+            border-radius: 30px;
+            margin: 25px 20px 0 20px;
+            color: white;
+            text-align: left;
+            box-sizing: border-box;
+            width: calc(100% - 40px);
+        }
+
+        .anketa-title {
+            font-family: 'Rozovii Chulok', cursive, sans-serif;
+            font-size: 46px;
+            text-align: center;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 10px;
+            font-weight: 600; 
+        }
+
+        .input-text {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1.5px solid white;
+            border-radius: 12px;
+            background-color: transparent;
+            color: white;
+            font-family: 'Montserrat Alternates', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .input-text::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .radio-route {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .radio-route input {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            accent-color: #E2A13B;
+        }
+
+        .submit-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            background-color: white;
+            color: #C3B4D4;
+            border: none;
+            padding: 20px 45px;
+            border-radius: 35px;
+            font-family: 'Montserrat Alternates', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-container">
+
+        <!-- ЧАСТЬ 1 -->
+        <div class="top-block-container">
+            <img src="images/top.png" class="block-img" alt="Приглашение на свадьбу">
+        </div>
+
+        <!-- Разделитель -->
+        <div class="spacer"></div>
+
+        <!-- КНОПКА: Посмотреть на карте -->
+        <div class="btn-wrapper map-wrapper">
+            <a href="https://yandex.ru" target="_blank" class="btn-link">
+                Посмотреть на карте
+            </a>
+        </div>
+
+        <!-- ЧАСТЬ 2 -->
+        <img src="images/middle.png" class="block-img" alt="Программа праздника">
+
+        <!-- АНКЕТА ГОСТЯ -->
+        <div class="anketa-section">
+            <div class="anketa-title">Анкета гостя</div>
+            
+            <form action="https://formspree.io" method="POST">
+                
+                <div class="form-group">
+                    <label class="form-label">Ваше имя и фамилия</label>
+                    <input type="text" name="Имя и Фамилия" class="input-text" placeholder="Имя и Фамилия" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Планируете ли Вы присутствовать на пикнике?</label>
+                    <label class="radio-route">
+                        <input type="radio" name="Присутствие на пикнике" value="Да, с удовольствием" required>
+                        Да, с удовольствием
+                    </label>
+                    <label class="radio-route">
+                        <input type="radio" name="Присутствие на пикнике" value="Нет, к сожалению">
+                        Нет, к сожалению
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Нужно ли Вам место в трансфере?</label>
+                    <label class="radio-route">
+                        <input type="radio" name="Нужен трансфер" value="Да, пожалуйста" required>
+                        Да, пожалуйста
+                    </label>
+                    <label class="radio-route">
+                        <input type="radio" name="Нужен трансфер" value="Нет, доберусь самостоятельно">
+                        Нет, доберусь самостоятельно
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Предпочтение по алкоголю</label>
+                    <input type="text" name="Алкоголь" class="input-text" placeholder="Что вы предпочитаете из напитков?">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Ваши пожелания</label>
+                    <input type="text" name="Пожелания" class="input-text" placeholder="Ваши пожелания">
+                </div>
+
+                <div class="submit-container">
+                    <button type="submit" class="submit-btn">Отправить</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- КНОПКА: Подписаться на тг-канал -->
+        <div class="tg-wrapper">
+            <a href="https://t.me" target="_blank" class="btn-link tg">
+                Подписаться на тг канал
+            </a>
+        </div>
+
+        <!-- ЧАСТЬ 3 -->
+        <img src="images/footer.png" class="block-img" alt="С нетерпением ждем вас">
+
+    </div>
+
+</body>
+</html>
